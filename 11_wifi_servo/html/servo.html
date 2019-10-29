@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>서보 모터 웹으로 제어하기</title>
+	<script src="jquery-3.4.1.js"></script>
+</head>
+<body style="margin: 0 auto; width: 1024px; height: auto;">
+	<h1 style="text-align: center;">
+		<b style="color:#1f6dba;">Web controlled Servo</b>
+	</h1>
+	<div style="margin: 0 auto; width: 500px; height: 50px;">
+		<form name="form" action="" method="get" style="text-align: center;">
+			ESP8266 IP 주소 입력 : 
+			<input type="text" name="inputbox" >
+		</form>
+	</div>
+	<div style="text-align: center;">
+		<h3 style="color:#ba4d1f;">Scroll it to rotate servo</h3>
+		0<input type="range" min="0" max="180" onmouseup="servo1 (this.value)"/>180
+	</div>
+	
+
+</body>
+
+<script>
+	$ .ajaxSetup ({timeout : 1000});
+	function servo1(angle)
+	{
+		TextVar = form.inputbox.value;
+		ArduinoVar = "http://" + TextVar + ":80";
+		$ .get (ArduinoVar, {"sr1":angle});
+		{Connection: close};
+	}
+</script>
+</html>
