@@ -22,7 +22,7 @@ void setup() {
   }
   
   // print your local IP address:
-  IPAddress myIP = Ethernet.localIP(); 
+  IPAddress myIP = Ethernet.localIP();  //ip 주소 설정
   Serial.print("My IP address: ");
   Serial.println(myIP);
   ip_display(myIP);
